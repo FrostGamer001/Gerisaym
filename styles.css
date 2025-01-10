@@ -1,71 +1,210 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
-
-.font-redHatText{
-  font-family: 'Red Hat Text', sans-serif;
-}
-.bg-grayishBlue{
-  background-color: hsl(237, 18%, 59%);
-}
-.text-grayishBlue{
-  color: hsl(237, 18%, 59%);
-}
-.text-softRed{
-  color: hsl(345, 95%, 68%);
+/* Reset default margin, padding, and set box-sizing for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.bg-darkDesaturatedBlue {
-  background-color: hsl(236, 21%, 26%);
+/* Body and background styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    min-height: 100vh;
 }
 
-.bg-slightlyDarkerDesBlue {
-  background-color: hsl(236, 21%, 20%);
+/* Main title styling */
+h1 {
+    font-size: 3rem;
+    margin: 50px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #f4f4f9;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.bg-veryDarkBlue{
-  background-color: hsl(235, 16%, 14%);
+/* Flexbox container for team blocks */
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 60px;
+    animation: fadeIn 2s ease-in-out;
 }
 
-.bgmostlyBlackBlue {
-  background-color: hsl(234, 17%, 12%);
+/* Individual team styling */
+.team {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    position: relative;
 }
 
-.container-shadow{
-    -webkit-box-shadow: 0px 17px 12px 1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 17px 12px 1px rgba(0,0,0,0.75);
-    box-shadow: 0px 17px 12px 1px rgba(0,0,0,0.75);
+/* Hover effects for team blocks */
+.team:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-.bottom-flip-shadow{
-    -webkit-box-shadow: inset 0px -2px 1px 0px rgba(0,0,0,0.42);
-    -moz-box-shadow: inset 0px -2px 1px 0px rgba(0,0,0,0.42);
-    box-shadow: inset 0px -2px 1px 0px rgba(0,0,0,0.42);
+/* Team name styling */
+.team h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
 }
 
-.top-flip-shadow{
-    -webkit-box-shadow: inset 0px 2px 1px 0px rgba(0,0,0,0.42);
-    -moz-box-shadow: inset 0px 2px 1px 0px rgba(0,0,0,0.42);
-    box-shadow: inset 0px 2px 1px 0px rgba(0,0,0,0.42);
+/* Team description text styling */
+.team p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.8;
 }
 
-.flip-card-top {
-    animation: flip-top 350ms ease-in;
-    transform-origin: bottom;
+/* Countdown timer styling */
+.countdown {
+    font-size: 3rem;
+    color: #ffeb3b;
+    margin-top: 30px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes flip-top {
+/* Countdown time styling */
+.time {
+    color: #f44336;
+    font-weight: bold;
+}
+
+/* Button container for additional elements */
+.button-container {
+    margin-top: 40px;
+}
+
+/* Button styling */
+.button {
+    background-color: #9c27b0;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effects for buttons */
+.button:hover {
+    background-color: #ba68c8;
+    transform: scale(1.05);
+}
+
+/* Animation for elements */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
     100% {
-        transform: rotateX(90deg);
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-.flip-card-bottom {
-    animation: flip-bottom 350ms ease-in-out 350ms;
-    transform-origin: top;
-    transform: rotateX(90deg);
-}
-
-@keyframes flip-bottom {
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
     100% {
-        transform: rotateX(0deg);
+        transform: translateX(0);
+        opacity: 1;
     }
 }
+
+/* Champion text animation */
+.champion {
+    font-size: 3rem;
+    margin-top: 50px;
+    opacity: 0;
+    animation: appear 1s ease-in-out forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .team-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .team {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .countdown {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .team {
+        width: 90%;
+    }
+
+    .countdown {
+        font-size: 2rem;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <h1>Stylish Tournament Dashboard</h1>
+    <div class="team-container">
+        <div class="team" id="hsh">
+            <h2>HSH Team</h2>
+            <p>The mighty team HSH is here to win!</p>
+        </div>
+        <div class="team" id="s2g">
+            <h2>S2G Team</h2>
+            <p>S2G, ready for victory!</p>
+        </div>
+    </div>
+
+    <div class="countdown">
+        Countdown: <span id="time" class="time"></span>
+    </div>
+
+    <h1 id="championText" class="champion"></h1>
+</body>
+</html>
